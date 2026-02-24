@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+
+<body style="background-color: #212121; color: aliceblue;">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function () {
+    //     alert('helo')
+    // }
+
+    //attachEvent()
+    //jQuery = on
+
+    document.getElementById('owl').addEventListener("click", function (e) {
+        // alert('cliked')
+        // e.stopPropagation()
+        // console.log('owl cliked')
+    },)
+
+    // things to learn:   type, timestamp, defaultPrevented
+    //    target, toElement, srcElement, currentTarget,
+    //    ClientX, ClientY, screenX, screenY
+    //    altkey, ctrlkey, shiftkey, keycode 
+
+    document.getElementById('owl').addEventListener("click", function (e) {
+        // console.log(e.currentTarget);
+        // console.log(e.target.id);
+        // console.log(e.clientX);     // clientX/Y Mouse position in browser
+        // console.log(e.clientY);
+        // console.log(e.screenX);     // clientX/Y Mouse position on screen
+        // console.log(e.screenY);
+
+
+    }, false)
+
+    document.addEventListener("keydown", (e) => {
+        // console.log(e.key);
+        // console.log(e.ctrlKey);
+        // console.log(e.shiftKey);
+        // console.log(e.keyCode);
+
+
+    })
+
+    document.getElementById('images').addEventListener("click", function (e) {
+        // console.log('cliked inside the ul');
+        // e.stopPropagation()
+
+    }, false)
+    // if false bubbling if true then top element click
+    // stopPropagation stop bubbling and stop at one element
+
+    document.getElementById('google').addEventListener('click', function (e) {
+        // e.preventDefault()
+        // e.stopPropagation()
+    })
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            const element = e.target.parentNode
+            element.remove()  // better to use this method
+
+        }
+
+    }, false)
+    // element.parentNode.removeChild(element)
+
+</script>
+
+</html>
