@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIrequest</title>
+</head>
+
+<body style="background-color: #212121;">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque est totam fuga quis soluta cum saepe aspernatur
+    recusandae, sit, nihil inventore, tempora corporis. Praesentium, omnis laborum eveniet fugit facere delectus.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur dignissimos perferendis ratione ullam! Nobis
+    culpa numquam sed libero commodi saepe iure, accusamus cum nulla, reprehenderit quis aliquam non excepturi quos.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias aliquam excepturi, corrupti nemo id totam facere
+    consequuntur culpa! Doloremque temporibus incidunt ipsam cumque animi autem quos illo cum repellendus. Fuga.
+</body>
+<script>
+    const reqURL = 'https://api.github.com/users/aquifansari'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', reqURL)
+    xhr.onreadystatechange = function () {
+
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+
+            console.log(typeof (data));
+            console.log(data.followers);
+
+        }
+    }
+
+    xhr.send();
+</script>
+
+</html>
